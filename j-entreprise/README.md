@@ -34,9 +34,9 @@ npm run start   # serveur de production
 
 Tous les points sont marqués `TODO` dans le code.
 
-1. **Coordonnées** dans `lib/site.ts` : téléphone, e-mail, nom de domaine, code postal, horaires. Ajouter ensuite le `telephone` dans le JSON-LD de `app/layout.tsx`.
+1. **Coordonnées** dans `lib/site.ts` : nom de domaine définitif et code postal du siège (téléphone, e-mail et horaires sont à jour).
 2. **Modèle de rémunération** : le site indique que l'accompagnement est gratuit pour le client (rémunération par l'artisan retenu). À valider avec le client (`lib/faq.ts`, `app/mon-accompagnement/page.tsx`).
-3. **Photo d'accueil** : le fichier fourni est un aperçu Adobe Stock de 429×240 px. Acheter la licence et remplacer `public/images/maison-architecte-foret.jpg` par la version HD (2400 px de large minimum).
+3. **Photo d'accueil** : `public/images/maison-bois-foret-coucher-soleil.jpg` (1870 px, fournie par le client). Vérifier que la licence d'utilisation est bien acquise.
 4. **Mentions légales** : SIRET, forme juridique, adresse, hébergeur.
 5. **Parcours du fondateur** sur `/j-entreprise` (expérience, date de création) : renforce la crédibilité et le SEO.
 6. **Avis Google** à ajouter dans `lib/reviews.ts` dès que la fiche établissement est validée.
@@ -47,7 +47,7 @@ Envoi par e-mail via l'API [Resend](https://resend.com) (aucune dépendance npm)
 
 ```
 RESEND_API_KEY=re_xxx
-QUOTE_TO_EMAIL=contact@j-entreprise.fr        # plusieurs adresses séparées par des virgules
+QUOTE_TO_EMAIL=jordan.courtier.travaux@gmail.com        # plusieurs adresses séparées par des virgules
 QUOTE_FROM_EMAIL="J Entreprise <devis@j-entreprise.fr>"   # domaine vérifié dans Resend
 ```
 

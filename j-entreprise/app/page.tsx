@@ -46,13 +46,13 @@ export default function Home() {
       {/* HERO — calqué sur la référence client : photo plein cadre, logo centré, rubriques en ligne, flèche */}
       <section className="relative isolate flex min-h-svh flex-col items-center overflow-hidden px-4 text-center">
         <Image
-          src="/images/maison-architecte-foret.jpg"
-          alt="Maison contemporaine en bois au cœur d'une pinède"
+          src="/images/maison-bois-foret-coucher-soleil.jpg"
+          alt="Maison contemporaine en bois et verre dans une pinède au coucher du soleil"
           fill
           preload
           sizes="100vw"
           quality={80}
-          className="-z-20 scale-105 object-cover"
+          className="-z-20 object-cover object-[40%_50%]"
         />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-ink/60" />
         <div
@@ -60,21 +60,21 @@ export default function Home() {
           className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(10,10,10,0.7)_100%)]"
         />
 
-        <div className="pt-24 md:pt-12">
+        <div className="flex flex-col items-center pt-28 md:pt-24">
           <Image
             src="/images/logo-j-entreprise.png"
             alt="J Entreprise – Construction, Rénovation, Aménagement"
             width={1253}
             height={173}
             preload
-            className="h-auto w-64 sm:w-80 md:w-[22rem]"
+            className="h-auto w-[19rem] drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] sm:w-[30rem] md:w-[38rem]"
           />
+          <h1 className="mt-8 max-w-3xl font-serif lg:max-w-none text-[1.7rem] font-normal leading-tight text-ivory drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] sm:text-4xl md:mt-10 md:text-[2.6rem]">
+            Courtier en travaux à La Rochelle et en Charente-Maritime
+          </h1>
         </div>
 
-        <div className="flex w-full flex-1 flex-col items-center justify-center py-16">
-          <h1 className="mb-12 text-[0.68rem] font-normal uppercase tracking-[0.34em] text-ivory/60 md:mb-14">
-            Courtier en travaux à La Rochelle &amp; en Charente-Maritime
-          </h1>
+        <div className="flex w-full flex-1 flex-col items-center justify-center py-14">
           <nav aria-label="Nos domaines">
             <ul className="flex flex-col gap-8 md:flex-row md:flex-wrap md:justify-center md:gap-x-10 md:gap-y-8 xl:gap-x-14">
               {tiles.map((t) => (

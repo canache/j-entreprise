@@ -60,7 +60,7 @@ const organizationJsonLd = {
   logo: `${site.url}/images/logo-j-entreprise.png`,
   image: `${site.url}${ogImage.url}`,
   email: site.email,
-  // telephone: TODO — ajouter le numéro du client au format +33…
+  telephone: site.phone.intl,
   address: {
     "@type": "PostalAddress",
     addressLocality: site.city,

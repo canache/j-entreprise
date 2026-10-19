@@ -9,16 +9,17 @@ export const site = {
   locale: "fr_FR",
   founder: "Jordan",
   phone: {
-    display: "06 XX XX XX XX", // TODO : numéro du client
-    href: "tel:+33600000000", // TODO
+    display: "06 82 45 02 70",
+    href: "tel:+33682450270",
+    intl: "+33682450270",
   },
-  email: "contact@j-entreprise.fr", // TODO
+  email: "jordan.courtier.travaux@gmail.com",
   city: "La Rochelle",
   postalCode: "17000", // TODO : code postal du siège
   region: "Nouvelle-Aquitaine",
   department: "Charente-Maritime",
   instagram: "https://www.instagram.com/j.entreprise_courtier/",
-  hours: "Du lundi au vendredi, 8h30 – 18h30", // TODO
+  hours: "Du lundi au samedi"
 } as const;
 
 // Le premier département est le secteur principal ; les suivants sont desservis selon le projet.

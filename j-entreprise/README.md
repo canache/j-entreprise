@@ -43,13 +43,29 @@ Tous les points sont marqués `TODO` dans le code.
 
 ## Formulaire de devis
 
-Envoi par e-mail via l'API [Resend](https://resend.com) (aucune dépendance npm). Variables d'environnement :
+Chaque demande est envoyée par e-mail à Jordan via le **SMTP d'OVH** (`nodemailer`, `app/demande-de-devis/actions.ts`). L'e-mail contient toutes les informations du formulaire ; « Répondre » écrit directement au client.
+
+### Mise en place
+
+1. Créer une boîte e-mail OVH sur le domaine (MX Plan ou Zimbra), par exemple `contact@ledomaine.fr`.
+2. Dans Vercel → projet → Settings → Environment Variables (Production), ajouter :
 
 ```
-RESEND_API_KEY=re_xxx
-QUOTE_TO_EMAIL=jordan.courtier.travaux@gmail.com        # plusieurs adresses séparées par des virgules
-QUOTE_FROM_EMAIL="J Entreprise <devis@j-entreprise.fr>"   # domaine vérifié dans Resend
+SMTP_USER=contact@ledomaine.fr      # adresse complète de la boîte OVH (= expéditeur)
+SMTP_PASSWORD=********              # mot de passe de cette boîte
 ```
+
+Variables facultatives :
+
+```
+SMTP_HOST=ssl0.ovh.net              # défaut ; Exchange OVH : serveur indiqué dans l'espace client
+SMTP_PORT=465                       # défaut (SSL) ; 587 pour STARTTLS
+QUOTE_TO_EMAIL=...                  # destinataire ; défaut : jordan.courtier.travaux@gmail.com
+QUOTE_CC_EMAIL=...                  # copie (tests) ; plusieurs adresses séparées par des virgules
+```
+
+3. Redéployer, puis envoyer une demande test depuis `/demande-de-devis`. En cas d'échec, l'erreur apparaît dans Vercel → Logs (`[devis]`).
+4. Pour la délivrabilité, vérifier dans l'espace client OVH que SPF est actif et activer DKIM sur le domaine. Au premier envoi, contrôler les spams de Gmail.
 
 Sans configuration : en développement, la demande est affichée dans la console ; en production, un message invite l'utilisateur à appeler ou écrire.
 

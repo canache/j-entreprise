@@ -1,5 +1,6 @@
 "use server";
 
+import nodemailer from "nodemailer";
 import { interventionTypes, site, timeframes } from "@/lib/site";
 
 export type QuoteState = {
@@ -14,6 +15,9 @@ export type QuoteState = {
 };
 
 const clean = (v: FormDataEntryValue | null, max = 200) => (typeof v === "string" ? v.trim().slice(0, max) : "");
+const oneLine = (v: string) => v.replace(/[\r\n]+/g, " ");
+const escapeHtml = (v: string) =>
+  v.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
 export async function submitQuote(_prev: QuoteState, formData: FormData): Promise<QuoteState> {
   // Champ piège anti-spam : invisible pour les humains.
@@ -49,28 +53,40 @@ export async function submitQuote(_prev: QuoteState, formData: FormData): Promis
     return { status: "error", message: "Certains champs sont à compléter.", errors, values: data };
   }
 
+  const fields: [string, string][] = [
+    ["Nom", `${data.firstName} ${data.lastName}`],
+    ["Téléphone", data.phone],
+    ["E-mail", data.email],
+    ["Adresse de l'intervention", data.address],
+    ["Date souhaitée", data.timeframe],
+    ["Interventions", data.types.join(", ")],
+  ];
   const text = [
-    `Nouvelle demande de devis — ${data.firstName} ${data.lastName}`,
+    "Nouvelle demande de devis depuis le site J Entreprise",
     "",
-    `Téléphone : ${data.phone}`,
-    `E-mail : ${data.email}`,
-    `Adresse de l'intervention : ${data.address}`,
-    `Date souhaitée : ${data.timeframe}`,
-    `Interventions : ${data.types.join(", ")}`,
+    ...fields.map(([k, v]) => `${k} : ${v}`),
     "",
     "Demande :",
     data.message,
   ].join("\n");
+  const html = `<div style="font-family:Arial,sans-serif;font-size:15px;color:#1b1a18;max-width:640px">
+<h2 style="font-weight:normal;margin:0 0 16px">Nouvelle demande de devis</h2>
+<table cellpadding="6" style="border-collapse:collapse">${fields
+    .map(([k, v]) => `<tr><td style="color:#5f594f;vertical-align:top">${k}</td><td><strong>${escapeHtml(v)}</strong></td></tr>`)
+    .join("")}</table>
+<p style="color:#5f594f;margin:20px 0 6px">Demande :</p>
+<p style="white-space:pre-wrap;margin:0">${escapeHtml(data.message)}</p>
+<p style="color:#a39d92;font-size:12px;margin-top:24px">Répondez directement à cet e-mail pour écrire au client.</p>
+</div>`;
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.QUOTE_TO_EMAIL;
+  const { SMTP_USER, SMTP_PASSWORD } = process.env;
 
-  if (!apiKey || !to) {
+  if (!SMTP_USER || !SMTP_PASSWORD) {
     if (process.env.NODE_ENV !== "production") {
-      console.info("[devis] Envoi d'e-mail non configuré (RESEND_API_KEY / QUOTE_TO_EMAIL).\n" + text);
+      console.info("[devis] SMTP non configuré (SMTP_USER / SMTP_PASSWORD).\n" + text);
       return { status: "success" };
     }
-    console.error("[devis] RESEND_API_KEY ou QUOTE_TO_EMAIL manquant.");
+    console.error("[devis] SMTP_USER ou SMTP_PASSWORD manquant.");
     return {
       status: "error",
       message: `L'envoi est momentanément indisponible. Appelez-nous au ${site.phone.display} ou écrivez à ${site.email}.`,
@@ -78,19 +94,27 @@ export async function submitQuote(_prev: QuoteState, formData: FormData): Promis
     };
   }
 
+  // SMTP OVH (MX Plan, Zimbra, Exchange) : ssl0.ovh.net, port 465 en SSL ou 587 en STARTTLS.
+  const port = Number(process.env.SMTP_PORT ?? 465);
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST ?? "ssl0.ovh.net",
+    port,
+    secure: port === 465,
+    auth: { user: SMTP_USER, pass: SMTP_PASSWORD },
+  });
+
   try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        from: process.env.QUOTE_FROM_EMAIL ?? "J Entreprise <devis@j-entreprise.fr>",
-        to: to.split(",").map((s) => s.trim()),
-        reply_to: data.email,
-        subject: `Demande de devis — ${data.firstName} ${data.lastName} (${data.types.slice(0, 3).join(", ")})`,
-        text,
-      }),
+    await transporter.sendMail({
+      // L'expéditeur doit être la boîte OVH authentifiée, sinon le message est rejeté ou classé en spam.
+      from: { name: "Site J Entreprise", address: SMTP_USER },
+      to: process.env.QUOTE_TO_EMAIL ?? site.email,
+      // Copie facultative (ex. pour tester l'envoi), plusieurs adresses séparées par des virgules.
+      cc: process.env.QUOTE_CC_EMAIL || undefined,
+      replyTo: { name: `${data.firstName} ${data.lastName}`, address: data.email },
+      subject: oneLine(`Demande de devis — ${data.firstName} ${data.lastName} (${data.types.slice(0, 3).join(", ")})`),
+      text,
+      html,
     });
-    if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
   } catch (err) {
     console.error("[devis] Échec de l'envoi", err);
     return {

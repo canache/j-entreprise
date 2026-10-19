@@ -56,10 +56,11 @@ export function Advantages({ heading = "Les atouts J Entreprise" }: { heading?: 
 
 export function Zones({ headingLevel = "h2" }: { headingLevel?: "h2" | "h3" }) {
   const H = headingLevel;
+  const [main, ...others] = zones;
   return (
     <section className="bg-ivory py-20 text-ink md:py-28" aria-labelledby="zones-titre">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
           <div>
             <Eyebrow light>Zones d&apos;intervention</Eyebrow>
             <H id="zones-titre" className="font-serif text-4xl leading-tight md:text-5xl">
@@ -67,7 +68,7 @@ export function Zones({ headingLevel = "h2" }: { headingLevel?: "h2" | "h3" }) {
             </H>
             <p className="mt-6 leading-relaxed text-stone">
               Basé à La Rochelle, J Entreprise accompagne vos projets dans toute l&apos;agglomération (Lagord, Périgny,
-              Aytré, Dompierre-sur-Mer, Puilboreau…) et au-delà, en Charente et en Vendée.
+              Aytré, Dompierre-sur-Mer, Puilboreau…) et partout en Charente-Maritime.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <ButtonLink href="/demande-de-devis" variant="dark">
@@ -75,29 +76,46 @@ export function Zones({ headingLevel = "h2" }: { headingLevel?: "h2" | "h3" }) {
               </ButtonLink>
             </div>
             <Link
-              href="/zones-intervention"
+              href="/courtier-travaux-la-rochelle"
               className="mt-6 inline-block text-sm text-gold-dark underline decoration-gold/40 underline-offset-4 hover:text-ink"
             >
-              Toutes nos zones d&apos;intervention
+              Votre courtier en travaux à La Rochelle
             </Link>
           </div>
-          <div className="grid gap-px bg-sand md:grid-cols-3">
-            {zones.map((z) => (
-              <div key={z.department} className="bg-ivory p-7 md:p-8">
-                <p className="text-[0.68rem] uppercase tracking-[0.24em] text-gold-dark">
-                  Zone {z.level.toLowerCase()}
-                </p>
-                <h3 className="mt-3 font-serif text-2xl">
-                  {z.department} <span className="text-mist">({z.code})</span>
-                </h3>
-                <ul className="mt-5 space-y-2 text-[0.95rem] text-stone">
-                  {z.cities.map((c) => (
-                    <li key={c}>{c}</li>
-                  ))}
-                </ul>
-                {z.note ? <p className="mt-5 text-xs italic text-mist">{z.note}</p> : null}
-              </div>
-            ))}
+
+          <div>
+            <div className="border border-sand bg-white/50 p-8 md:p-10">
+              <h3 className="font-serif text-3xl">
+                {main.department} <span className="text-mist">({main.code})</span>
+              </h3>
+              <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3">
+                {main.cities.map((c, i) => (
+                  <li
+                    key={c}
+                    className={`border-b border-sand pb-3 ${i === 0 ? "font-serif text-lg text-ink" : "text-[0.95rem] text-stone"}`}
+                  >
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-8">
+              <p className="text-[0.68rem] uppercase tracking-[0.24em] text-gold-dark">Nous intervenons aussi</p>
+              <dl className="mt-4 space-y-4">
+                {others.map((z) => (
+                  <div key={z.department} className="grid gap-1 sm:grid-cols-[11rem_1fr] sm:gap-6">
+                    <dt className="font-serif text-xl">
+                      {z.department} <span className="text-mist">({z.code})</span>
+                    </dt>
+                    <dd className="text-[0.95rem] leading-relaxed text-stone">
+                      {z.cities.join(", ")}
+                      {z.note ? <span className="text-mist"> — {z.note.charAt(0).toLowerCase() + z.note.slice(1)}</span> : null}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
           </div>
         </div>
       </div>

@@ -17,7 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...domains.map((d) => page(`/domaines-intervention/${d.slug}`, 0.9)),
     page("/mon-accompagnement", 0.8),
     page("/j-entreprise", 0.7),
-    page("/zones-intervention", 0.7),
     page("/demande-de-devis", 0.8),
     page("/conseils", 0.6, "weekly"),
     ...articles.map((a) => ({ ...page(`/conseils/${a.slug}`, 0.6), lastModified: a.date })),

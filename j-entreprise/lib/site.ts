@@ -21,8 +21,8 @@ export const site = {
   hours: "Du lundi au vendredi, 8h30 – 18h30", // TODO
 } as const;
 
+// Le premier département est le secteur principal ; les suivants sont desservis selon le projet.
 export type Zone = {
-  level: "Principale" | "Secondaire";
   department: string;
   code: string;
   cities: string[];
@@ -31,7 +31,6 @@ export type Zone = {
 
 export const zones: Zone[] = [
   {
-    level: "Principale",
     department: "Charente-Maritime",
     code: "17",
     cities: [
@@ -48,7 +47,6 @@ export const zones: Zone[] = [
     ],
   },
   {
-    level: "Secondaire",
     department: "Charente",
     code: "16",
     cities: [
@@ -61,7 +59,6 @@ export const zones: Zone[] = [
     ],
   },
   {
-    level: "Secondaire",
     department: "Vendée",
     code: "85",
     cities: [

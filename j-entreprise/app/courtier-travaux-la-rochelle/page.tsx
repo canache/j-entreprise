@@ -56,12 +56,13 @@ export default function Page() {
             </p>
             <h3 className="pt-4 font-serif text-2xl text-ink">Les communes où nous intervenons</h3>
             <p>{laRochelleArea.join(" · ")}, ainsi que dans toute la Charente-Maritime.</p>
-            <Link
-              href="/zones-intervention"
-              className="inline-block text-sm text-gold-dark underline decoration-gold/40 underline-offset-4 hover:text-ink"
-            >
-              Voir toutes nos zones d&apos;intervention
-            </Link>
+            <p className="text-sm">
+              Votre commune n&apos;apparaît pas ?{" "}
+              <Link href="/demande-de-devis" className="text-gold-dark underline decoration-gold/40 underline-offset-4 hover:text-ink">
+                Présentez-nous votre projet
+              </Link>
+              , nous étudions chaque demande.
+            </p>
           </div>
         </div>
       </section>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { articles } from "@/lib/articles";
 import { domains } from "@/lib/domains";
-import { site, zones } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -58,7 +58,6 @@ export function Footer() {
           <h2 className="mb-5 text-[0.7rem] uppercase tracking-[0.24em] text-gold">J Entreprise</h2>
           <ul className="space-y-3">
             <li><Link href="/j-entreprise" className="hover:text-gold-light">Qui sommes-nous</Link></li>
-            <li><Link href="/zones-intervention" className="hover:text-gold-light">Zones d&apos;intervention</Link></li>
             <li><Link href="/conseils" className="hover:text-gold-light">Conseils travaux</Link></li>
             {articles.slice(0, 2).map((a) => (
               <li key={a.slug} className="text-ivory/45">
@@ -99,8 +98,8 @@ export function Footer() {
       <div className="border-t border-white/5">
         <div className="mx-auto max-w-7xl px-4 py-6 text-xs leading-relaxed text-ivory/40 sm:px-6">
           <p>
-            Zones desservies :{" "}
-            {zones.map((z) => `${z.department} (${z.cities.join(", ")})`).join(" · ")}.
+            Intervention dans toute la Charente-Maritime (La Rochelle, Rochefort, Saintes, Royan…), ainsi qu&apos;en
+            Charente et en Vendée.
           </p>
         </div>
       </div>

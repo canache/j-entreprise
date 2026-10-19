@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* En-tête superposé à la photo de l'accueil (voir HeaderShell) */
+@custom-variant overlay (&:is([data-overlay="true"] *));
+
 /* Charte J Entreprise : noir profond, or brossé, ivoire. */
 @theme {
   --color-ink: #0a0a0a;
@@ -36,7 +39,7 @@ body {
 }
 
 /* Or brossé du logo */
-.text-gold-gradient {
+@utility text-gold-gradient {
   background: linear-gradient(
     120deg,
     #8f723f 0%,
@@ -50,11 +53,11 @@ body {
   color: transparent;
 }
 
-.bg-gold-gradient {
+@utility bg-gold-gradient {
   background: linear-gradient(120deg, #a8854b 0%, #e2c88f 45%, #b8955a 75%, #d9bc80 100%);
 }
 
-.gold-rule {
+@utility gold-rule {
   height: 1px;
   background: linear-gradient(90deg, transparent, #c6a668 20%, #e8d3a2 50%, #c6a668 80%, transparent);
 }

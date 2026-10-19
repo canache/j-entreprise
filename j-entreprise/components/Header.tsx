@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { domains } from "@/lib/domains";
 import { mainNav, site } from "@/lib/site";
+import { HeaderShell } from "./HeaderShell";
 import { MobileNav } from "./MobileNav";
 
 export function Logo({ className = "" }: { className?: string }) {
@@ -21,10 +22,10 @@ export function Logo({ className = "" }: { className?: string }) {
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/5">
+    <HeaderShell>
       {/* Le flou est porté par un calque séparé : un backdrop-filter sur le header casserait le menu mobile en position fixe. */}
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-ink/85 backdrop-blur-md" />
-      <div className="hidden border-b border-white/5 text-[0.7rem] tracking-[0.12em] text-mist md:block">
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-ink/85 backdrop-blur-md transition-opacity duration-500 overlay:opacity-0" />
+      <div className="hidden border-b border-white/5 text-[0.7rem] tracking-[0.12em] text-mist md:block overlay:hidden">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
           <p>Courtier en travaux à La Rochelle · Charente-Maritime, Charente &amp; Vendée</p>
           <div className="flex items-center gap-6">
@@ -38,8 +39,11 @@ export function Header() {
         </div>
       </div>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-3.5 sm:px-6">
-        <Logo />
-        <nav aria-label="Navigation principale" className="hidden xl:block">
+        <Logo className="transition-opacity duration-500 overlay:pointer-events-none overlay:opacity-0" />
+        <nav
+          aria-label="Navigation principale"
+          className="hidden transition-opacity duration-500 xl:block overlay:pointer-events-none overlay:opacity-0"
+        >
           <ul className="flex items-center gap-7 whitespace-nowrap text-[0.74rem] uppercase tracking-[0.18em] text-ivory/80">
             {mainNav.map((item) =>
               item.href === "/domaines-intervention" ? (
@@ -77,13 +81,13 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/demande-de-devis"
-            className="bg-gold-gradient hidden whitespace-nowrap px-5 py-2.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-ink transition hover:brightness-110 sm:inline-flex"
+            className="bg-gold-gradient hidden whitespace-nowrap border border-transparent px-5 py-2.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-ink transition hover:brightness-110 sm:inline-flex overlay:border-ivory/40 overlay:bg-none overlay:text-ivory overlay:hover:border-gold overlay:hover:text-gold-light"
           >
             Demander un devis
           </Link>
           <MobileNav />
         </div>
       </div>
-    </header>
+    </HeaderShell>
   );
 }

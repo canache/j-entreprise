@@ -20,7 +20,6 @@ npm run start   # serveur de production
 | FAQ | `/faq` |
 | Demande de devis | `/demande-de-devis` |
 | Page locale SEO | `/courtier-travaux-la-rochelle` |
-| Zones d'intervention | `/zones-intervention` |
 | Mentions légales, confidentialité | `/mentions-legales`, `/politique-de-confidentialite` (noindex) |
 
 ## Où modifier le contenu

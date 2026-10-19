@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Zones } from "@/components/sections";
 import { ButtonLink, CtaBanner, PageHero } from "@/components/ui";
 import { domains } from "@/lib/domains";
 import { seo } from "@/lib/seo";
@@ -17,7 +16,7 @@ export default function Page() {
     <>
       <PageHero
         eyebrow="Construction · Rénovation · Aménagement"
-        title="Nos domaines d'intervention"
+        title="Nos domaines d'intervention en Charente-Maritime"
         intro={
           <p>
             De l&apos;électricité à la piscine, de la toiture à la cuisine : notre réseau d&apos;artisans couvre
@@ -64,8 +63,6 @@ export default function Page() {
           ))}
         </div>
       </section>
-
-      <Zones />
 
       <CtaBanner
         title="Plusieurs corps de métier pour un même projet ?"

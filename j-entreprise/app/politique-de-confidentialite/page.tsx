@@ -6,7 +6,7 @@ import { seo } from "@/lib/seo";
 export const metadata: Metadata = seo({
   title: "Politique de confidentialité",
   description:
-    "Comment J Entreprise collecte et protège vos données personnelles.",
+    "Données collectées via le formulaire de devis, finalités, durée de conservation et droits RGPD : comment J Entreprise protège vos données personnelles.",
   path: "/politique-de-confidentialite",
   noindex: true,
 });

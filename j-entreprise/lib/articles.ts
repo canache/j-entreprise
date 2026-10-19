@@ -17,6 +17,7 @@ export type Article = {
   content: Block[];
 };
 
+// TODO : caler les dates de publication sur la mise en ligne réelle (datePublished dans le JSON-LD).
 export const articles: Article[] = [
   {
     slug: "comment-choisir-artisan-la-rochelle",

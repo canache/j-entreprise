@@ -91,7 +91,7 @@ export default async function Page({ params }: PageProps<"/domaines-intervention
           </aside>
 
           <div>
-            <h2 className="sr-only">Nos prestations — {domain.name}</h2>
+            <h2 className="mb-8 font-serif text-3xl md:text-4xl">{domain.prestationsTitle}</h2>
             <div className="space-y-6">
               {domain.prestations.map((p, i) => (
                 <article

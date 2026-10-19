@@ -14,6 +14,7 @@ export type Domain = {
   metaDescription: string;
   h1: string;
   intro: string[];
+  prestationsTitle: string;
   prestations: Prestation[];
   faq: { q: string; a: string }[];
   cta: string;
@@ -24,6 +25,7 @@ export const domains: Domain[] = [
     slug: "travaux-interieurs",
     name: "Travaux intérieurs",
     number: "01",
+    prestationsTitle: "Nos prestations de rénovation intérieure",
     summary:
       "Électricité, plomberie, isolation, menuiserie, carrelage, peinture, sols, cuisine et salle de bain : chaque corps de métier pour transformer votre intérieur.",
     metaTitle: "Travaux intérieurs à La Rochelle",
@@ -132,6 +134,7 @@ export const domains: Domain[] = [
     slug: "travaux-exterieurs",
     name: "Travaux extérieurs",
     number: "02",
+    prestationsTitle: "Nos prestations de travaux extérieurs",
     summary:
       "Maçonnerie et gros œuvre, menuiseries extérieures, isolation et façade, toiture et couverture : protéger, agrandir et valoriser votre maison.",
     metaTitle: "Travaux extérieurs en Charente-Maritime",
@@ -200,6 +203,7 @@ export const domains: Domain[] = [
     slug: "amenagement-exterieur",
     name: "Aménagement extérieur",
     number: "03",
+    prestationsTitle: "Nos prestations d'aménagement extérieur",
     summary:
       "Aménagement paysager, piscine et spa, clôtures et portails, terrasse et dallage : prolonger la maison vers le jardin et profiter pleinement du cadre de vie.",
     metaTitle: "Aménagement extérieur à La Rochelle",

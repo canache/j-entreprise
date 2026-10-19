@@ -32,7 +32,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="mb-5 text-[0.7rem] uppercase tracking-[0.24em] text-gold">Domaines</h2>
+          <p className="mb-5 text-[0.7rem] uppercase tracking-[0.24em] text-gold">Domaines</p>
           <ul className="space-y-3">
             {domains.map((d) => (
               <li key={d.slug}>
@@ -55,7 +55,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="mb-5 text-[0.7rem] uppercase tracking-[0.24em] text-gold">J Entreprise</h2>
+          <p className="mb-5 text-[0.7rem] uppercase tracking-[0.24em] text-gold">J Entreprise</p>
           <ul className="space-y-3">
             <li><Link href="/j-entreprise" className="hover:text-gold-light">Qui sommes-nous</Link></li>
             <li><Link href="/conseils" className="hover:text-gold-light">Conseils travaux</Link></li>
@@ -71,7 +71,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="mb-5 text-[0.7rem] uppercase tracking-[0.24em] text-gold">Contact</h2>
+          <p className="mb-5 text-[0.7rem] uppercase tracking-[0.24em] text-gold">Contact</p>
           <address className="space-y-3 not-italic">
             <p>
               <a href={site.phone.href} className="font-serif text-2xl text-ivory hover:text-gold-light">

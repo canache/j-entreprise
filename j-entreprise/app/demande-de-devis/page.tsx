@@ -18,7 +18,7 @@ export default function Page() {
         eyebrow="Sans engagement"
         title={
           <>
-            Demander un <span className="text-gold-gradient italic">devis</span>
+            Demander un <span className="text-gold-gradient italic">devis</span> pour vos travaux
           </>
         }
         intro={

@@ -35,7 +35,7 @@ const tiles = [
   {
     href: "/mon-accompagnement",
     title: "Mon accompagnement",
-    hint: "De A à Z",
+    hint: "Du projet au chantier",
     text: "Sélection des artisans, analyse des devis et suivi jusqu'au chantier.",
   },
 ];
@@ -110,7 +110,7 @@ export default function Home() {
               Construction · Rénovation · Aménagement
             </p>
             <h2 id="domaines-titre" className="mt-5 font-serif text-4xl text-ivory md:text-5xl">
-              Nos domaines d&apos;intervention
+              Nos domaines d&apos;intervention en Charente-Maritime
             </h2>
           </div>
           <ul className="grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">

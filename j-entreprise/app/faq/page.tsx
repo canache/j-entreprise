@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CtaBanner, Eyebrow, JsonLd, PageHero } from "@/components/ui";
+import { CtaBanner, JsonLd, PageHero } from "@/components/ui";
 import { faqGroups } from "@/lib/faq";
 import { seo } from "@/lib/seo";
 
@@ -23,7 +23,7 @@ export default function Page() {
     <>
       <PageHero
         eyebrow="FAQ"
-        title="Questions fréquentes"
+        title="Questions fréquentes sur le courtage en travaux"
         intro={<p>Tout ce que vous souhaitez savoir sur le courtage en travaux et l&apos;accompagnement J Entreprise.</p>}
         crumbs={[{ href: "/faq", label: "FAQ" }]}
       />
@@ -31,8 +31,10 @@ export default function Page() {
         <div className="mx-auto max-w-4xl space-y-16 px-4 sm:px-6">
           {faqGroups.map((g) => (
             <div key={g.title}>
-              <Eyebrow light>{g.title}</Eyebrow>
-              <h2 className="sr-only">{g.title}</h2>
+              <h2 className="mb-6 flex items-center gap-4 font-serif text-3xl">
+                <span aria-hidden="true" className="h-px w-10 bg-gold-dark" />
+                {g.title}
+              </h2>
               <div className="divide-y divide-sand border-y border-sand">
                 {g.items.map((f) => (
                   <details key={f.q} className="group py-6">

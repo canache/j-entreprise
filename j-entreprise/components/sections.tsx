@@ -6,7 +6,7 @@ import { ButtonLink, Eyebrow } from "./ui";
 export const advantages = [
   {
     title: "Un interlocuteur unique",
-    text: "Une seule personne suit votre projet du premier échange au démarrage du chantier. Fini les relances et les appels à dix entreprises.",
+    text: "Une seule personne suit votre projet, du premier échange au démarrage du chantier. Plus besoin de relancer une dizaine d'entreprises.",
   },
   {
     title: "Des artisans sélectionnés",
@@ -67,7 +67,7 @@ export function Zones({ headingLevel = "h2" }: { headingLevel?: "h2" | "h3" }) {
               De La Rochelle à toute la Charente-Maritime
             </H>
             <p className="mt-6 leading-relaxed text-stone">
-              Basé à La Rochelle, J Entreprise accompagne vos projets dans toute l&apos;agglomération (Lagord, Périgny,
+              Depuis La Rochelle, J Entreprise accompagne vos projets dans toute l&apos;agglomération (Lagord, Périgny,
               Aytré, Dompierre-sur-Mer, Puilboreau…) et partout en Charente-Maritime.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -123,6 +123,7 @@ export function Zones({ headingLevel = "h2" }: { headingLevel?: "h2" | "h3" }) {
   );
 }
 
+// TODO : valider avec le client (visite systématique ? nombre de devis par corps de métier ?).
 export const steps = [
   {
     title: "Premier échange",

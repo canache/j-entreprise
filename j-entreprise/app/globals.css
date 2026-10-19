@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/* Charte J Entreprise : noir profond, or brossé, ivoire. */
+@theme {
+  --color-ink: #0a0a0a;
+  --color-coal: #121212;
+  --color-graphite: #1b1a18;
+  --color-smoke: #2a2825;
+  --color-gold: #c6a668;
+  --color-gold-light: #e8d3a2;
+  --color-gold-dark: #8f723f;
+  --color-ivory: #f6f2ea;
+  --color-sand: #ebe3d3;
+  --color-stone: #5f594f;
+  --color-mist: #a39d92;
+
+  --font-serif: var(--font-cormorant), "Times New Roman", serif;
+  --font-sans: var(--font-jost), "Helvetica Neue", Arial, sans-serif;
+
+  --tracking-luxe: 0.28em;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Or brossé du logo */
+.text-gold-gradient {
+  background: linear-gradient(
+    120deg,
+    #8f723f 0%,
+    #e8d3a2 38%,
+    #b8955a 62%,
+    #f1dfb3 82%,
+    #a8854b 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(120deg, #a8854b 0%, #e2c88f 45%, #b8955a 75%, #d9bc80 100%);
+}
+
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c6a668 20%, #e8d3a2 50%, #c6a668 80%, transparent);
+}
+
+/* Contenu éditorial (articles, pages texte) */
+.prose-luxe h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  line-height: 1.2;
+  margin: 2.6rem 0 1rem;
+  color: var(--color-ink);
+}
+.prose-luxe h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  margin: 1.8rem 0 0.6rem;
+  color: var(--color-ink);
+}
+.prose-luxe p {
+  margin: 0 0 1.1rem;
+  line-height: 1.85;
+  color: #3a3631;
+}
+.prose-luxe ul {
+  margin: 0 0 1.4rem;
+  padding: 0;
+  list-style: none;
+}
+.prose-luxe li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.75;
+  color: #3a3631;
+}
+.prose-luxe li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.85em;
+  width: 0.8rem;
+  height: 1px;
+  background: var(--color-gold-dark);
+}
+
+/* Accordéon FAQ natif */
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-plus {
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

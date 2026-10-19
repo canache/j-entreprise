@@ -17,7 +17,6 @@ export const site = {
   email: "jordan.courtier.travaux@gmail.com",
   // Siège social (identique à la fiche Google Business Profile pour la cohérence NAP).
   address: {
-    street: "84 bis avenue des Boucholeurs",
     postalCode: "17340",
     city: "Châtelaillon-Plage",
   },

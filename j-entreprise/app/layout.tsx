@@ -64,7 +64,6 @@ const organizationJsonLd = {
   founder: { "@type": "Person", name: site.founder },
   address: {
     "@type": "PostalAddress",
-    streetAddress: site.address.street,
     addressLocality: site.address.city,
     postalCode: site.address.postalCode,
     addressRegion: site.region,

@@ -84,8 +84,6 @@ export function Footer() {
               </a>
             </p>
             <p>
-              {site.address.street}
-              <br />
               {site.address.postalCode} {site.address.city}
             </p>
             <p className="text-ivory/45">{site.hours}</p>

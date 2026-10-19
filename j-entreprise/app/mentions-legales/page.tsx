@@ -22,7 +22,7 @@ export default function Page() {
           <p>
             {site.name} — {site.founder}, {site.legalForm}
             <br />
-            Siège social : {site.address.street}, {site.address.postalCode} {site.address.city}
+            Siège social : {site.address.postalCode} {site.address.city}
             <br />
             SIRET : {site.siret}
             <br />

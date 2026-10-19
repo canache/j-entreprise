@@ -69,7 +69,7 @@ export default function Home() {
             preload
             className="h-auto w-[19rem] drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] sm:w-[30rem] md:w-[38rem]"
           />
-          <h1 className="mt-8 max-w-3xl font-serif lg:max-w-none text-[1.7rem] font-normal leading-tight text-ivory drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] sm:text-4xl md:mt-10 md:text-[2.6rem]">
+          <h1 className="mt-8 font-serif text-lg font-normal uppercase tracking-[0.12em] text-ivory drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] md:mt-10 md:text-base">
             Courtier en travaux à La Rochelle et en Charente-Maritime
           </h1>
         </div>

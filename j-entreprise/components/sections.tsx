@@ -18,7 +18,7 @@ export const advantages = [
   },
   {
     title: "Un ancrage local",
-    text: "Basés à La Rochelle, nous connaissons le territoire, ses contraintes et les meilleurs artisans de Charente-Maritime.",
+    text: "Installés aux portes de La Rochelle, nous connaissons le territoire, ses contraintes et les meilleurs artisans de Charente-Maritime.",
   },
 ];
 
@@ -67,7 +67,7 @@ export function Zones({ headingLevel = "h2" }: { headingLevel?: "h2" | "h3" }) {
               De La Rochelle à toute la Charente-Maritime
             </H>
             <p className="mt-6 leading-relaxed text-stone">
-              Depuis La Rochelle, J Entreprise accompagne vos projets dans toute l&apos;agglomération (Lagord, Périgny,
+              Depuis Châtelaillon-Plage, aux portes de La Rochelle, J Entreprise accompagne vos projets dans toute l&apos;agglomération (Lagord, Périgny,
               Aytré, Dompierre-sur-Mer, Puilboreau…) et partout en Charente-Maritime.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">

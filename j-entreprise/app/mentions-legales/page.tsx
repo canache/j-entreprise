@@ -11,7 +11,7 @@ export const metadata: Metadata = seo({
   noindex: true,
 });
 
-// TODO : compléter avec les informations légales du client (SIRET, forme juridique, adresse, hébergeur).
+// TODO : compléter le nom de l'entrepreneur, le registre d'immatriculation et l'hébergeur.
 export default function Page() {
   return (
     <>
@@ -20,10 +20,11 @@ export default function Page() {
         <div className="prose-luxe mx-auto max-w-3xl px-4 sm:px-6">
           <h2>Éditeur du site</h2>
           <p>
-            {site.legalName} — [forme juridique] au capital de [montant] €<br />
-            Siège social : [adresse], {site.postalCode} {site.city}
+            {site.name} — {site.legalForm}
             <br />
-            SIRET : [numéro] — RCS [ville]
+            Siège social : {site.address.street}, {site.address.postalCode} {site.address.city}
+            <br />
+            SIRET : {site.siret}
             <br />
             Téléphone : {site.phone.display} — E-mail : {site.email}
             <br />

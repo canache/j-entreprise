@@ -61,8 +61,8 @@ export default function Page() {
           <div className="space-y-5 text-[1.05rem] leading-relaxed text-stone">
             {/* TODO : enrichir avec le parcours réel du fondateur (expérience, métier d'origine, date de création). */}
             <p>
-              Derrière J Entreprise, il y a <strong className="font-medium text-ink">Jordan</strong>, installé à La
-              Rochelle. Un constat est à l&apos;origine du projet : les particuliers perdent un temps considérable à
+              Derrière J Entreprise, il y a <strong className="font-medium text-ink">Jordan</strong>, installé à
+              Châtelaillon-Plage, aux portes de La Rochelle. Un constat est à l&apos;origine du projet : les particuliers perdent un temps considérable à
               chercher des artisans fiables, et peinent à comparer des devis qui ne parlent pas le même langage.
             </p>
             <p>

@@ -3,7 +3,8 @@
 
 export const site = {
   name: "J Entreprise",
-  legalName: "J Entreprise", // TODO : raison sociale exacte
+  legalForm: "Entrepreneur individuel (EI)",
+  siret: "100 365 766 00011",
   tagline: "Construction · Rénovation · Aménagement",
   url: "https://www.j-entreprise.fr", // TODO : nom de domaine définitif
   locale: "fr_FR",
@@ -14,8 +15,12 @@ export const site = {
     intl: "+33682450270",
   },
   email: "jordan.courtier.travaux@gmail.com",
-  city: "La Rochelle",
-  postalCode: "17000", // TODO : code postal du siège
+  // Siège social (identique à la fiche Google Business Profile pour la cohérence NAP).
+  address: {
+    street: "84 bis avenue des Boucholeurs",
+    postalCode: "17340",
+    city: "Châtelaillon-Plage",
+  },
   region: "Nouvelle-Aquitaine",
   department: "Charente-Maritime",
   instagram: "https://www.instagram.com/j.entreprise_courtier/",

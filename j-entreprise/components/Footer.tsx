@@ -83,7 +83,11 @@ export function Footer() {
                 {site.email}
               </a>
             </p>
-            <p>{site.city}, {site.department}</p>
+            <p>
+              {site.address.street}
+              <br />
+              {site.address.postalCode} {site.address.city}
+            </p>
             <p className="text-ivory/45">{site.hours}</p>
           </address>
           <Link

@@ -37,7 +37,7 @@ Tous les points sont marqués `TODO` dans le code.
 1. **Nom de domaine** définitif dans `lib/site.ts` (coordonnées, adresse du siège et SIRET sont à jour).
 2. **Modèle de rémunération** : le site indique que l'accompagnement est gratuit pour le client (rémunération par l'artisan retenu). À valider avec le client (`lib/faq.ts`, `app/mon-accompagnement/page.tsx`).
 3. **Photo d'accueil** : `public/images/maison-bois-foret-coucher-soleil.jpg` (1870 px, fournie par le client). Vérifier que la licence d'utilisation est bien acquise.
-4. **Mentions légales** : nom de l'entrepreneur (directeur de la publication), registre d'immatriculation, hébergeur.
+4. **Mentions légales** : registre d'immatriculation à indiquer s'il y a lieu (RNE / RCS).
 5. **Parcours du fondateur** sur `/j-entreprise` (expérience, date de création) : renforce la crédibilité et le SEO.
 6. **Avis Google** à ajouter dans `lib/reviews.ts` dès que la fiche établissement est validée.
 

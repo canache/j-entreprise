@@ -8,7 +8,7 @@ export const site = {
   tagline: "Construction · Rénovation · Aménagement",
   url: "https://www.j-entreprise.fr", // TODO : nom de domaine définitif
   locale: "fr_FR",
-  founder: "Jordan",
+  founder: "Jordan Parachou",
   phone: {
     display: "06 82 45 02 70",
     href: "tel:+33682450270",

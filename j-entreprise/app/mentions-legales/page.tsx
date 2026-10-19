@@ -11,7 +11,7 @@ export const metadata: Metadata = seo({
   noindex: true,
 });
 
-// TODO : compléter le nom de l'entrepreneur, le registre d'immatriculation et l'hébergeur.
+// TODO : indiquer le registre d'immatriculation s'il y a lieu (RNE / RCS).
 export default function Page() {
   return (
     <>
@@ -20,7 +20,7 @@ export default function Page() {
         <div className="prose-luxe mx-auto max-w-3xl px-4 sm:px-6">
           <h2>Éditeur du site</h2>
           <p>
-            {site.name} — {site.legalForm}
+            {site.name} — {site.founder}, {site.legalForm}
             <br />
             Siège social : {site.address.street}, {site.address.postalCode} {site.address.city}
             <br />
@@ -28,10 +28,18 @@ export default function Page() {
             <br />
             Téléphone : {site.phone.display} — E-mail : {site.email}
             <br />
-            Directeur de la publication : [nom]
+            Directeur de la publication : {site.founder}
           </p>
           <h2>Hébergement</h2>
-          <p>[Nom de l&apos;hébergeur], [adresse], [téléphone].</p>
+          <p>
+            Vercel Inc.
+            <br />
+            440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis
+            <br />
+            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-gold-dark underline underline-offset-4">
+              vercel.com
+            </a>
+          </p>
           <h2>Propriété intellectuelle</h2>
           <p>
             L&apos;ensemble des contenus de ce site (textes, logo, images) est la propriété de {site.name} ou fait

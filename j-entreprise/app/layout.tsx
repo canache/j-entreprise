@@ -61,6 +61,7 @@ const organizationJsonLd = {
   image: `${site.url}${ogImage.url}`,
   email: site.email,
   telephone: site.phone.intl,
+  founder: { "@type": "Person", name: site.founder },
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.street,

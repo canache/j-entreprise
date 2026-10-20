@@ -124,7 +124,7 @@ export function QuoteForm() {
                         name="types"
                         value={t}
                         defaultChecked={v?.types.includes(t)}
-                        className="h-4 w-4 accent-[#8f723f]" />
+                        className="h-4 w-4 accent-[#7d6437]" />
                       {t}
                     </label>
                   </li>
@@ -207,7 +207,7 @@ export function QuoteForm() {
             required
             defaultChecked={v?.consent}
             aria-describedby={e.consent ? "consent-error" : undefined}
-            className="mt-1 h-4 w-4 shrink-0 accent-[#8f723f]"
+            className="mt-1 h-4 w-4 shrink-0 accent-[#7d6437]"
           />
           <span>
             J&apos;accepte que mes informations soient utilisées pour traiter ma demande et être recontacté(e), et

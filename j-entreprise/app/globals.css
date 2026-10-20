@@ -11,7 +11,7 @@
   --color-smoke: #2a2825;
   --color-gold: #c6a668;
   --color-gold-light: #e8d3a2;
-  --color-gold-dark: #8f723f;
+  --color-gold-dark: #7d6437; /* contraste ≥ 4.5:1 sur ivoire */
   --color-ivory: #f6f2ea;
   --color-sand: #ebe3d3;
   --color-stone: #5f594f;

@@ -49,7 +49,8 @@ export default function Home() {
           src="/images/maison-bois-foret-coucher-soleil.jpg"
           alt="Maison contemporaine en bois et verre dans une pinède au coucher du soleil"
           fill
-          preload
+          loading="eager"
+          fetchPriority="high"
           sizes="100vw"
           quality={80}
           className="-z-20 object-cover object-[40%_50%]"
@@ -66,7 +67,8 @@ export default function Home() {
             alt="J Entreprise – Construction, Rénovation, Aménagement"
             width={1253}
             height={173}
-            preload
+            loading="eager"
+            fetchPriority="high"
             className="h-auto w-[19rem] drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] sm:w-[30rem] md:w-[38rem]"
           />
           <h1 className="mt-8 font-serif text-lg font-normal uppercase tracking-[0.12em] text-ivory drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] md:mt-10 md:text-base">
@@ -83,7 +85,7 @@ export default function Home() {
                     <span className="block whitespace-nowrap font-serif text-lg uppercase tracking-[0.12em] text-ivory transition group-hover:text-gold-light md:text-base">
                       {t.title}
                     </span>
-                    <span className="mt-1.5 block text-[0.58rem] uppercase tracking-[0.3em] text-ivory/45 transition group-hover:text-gold">
+                    <span className="mt-1.5 block text-[0.58rem] uppercase tracking-[0.3em] text-ivory/60 transition group-hover:text-gold">
                       {t.hint}
                     </span>
                   </Link>

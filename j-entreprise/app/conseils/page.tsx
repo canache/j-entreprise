@@ -40,7 +40,7 @@ export default function Page() {
                     </Link>
                   </h3>
                   <p className="mt-4 leading-relaxed text-stone">{a.excerpt}</p>
-                  <p className="mt-auto pt-8 text-xs text-mist">
+                  <p className="mt-auto pt-8 text-xs text-stone">
                     <time dateTime={a.date}>{formatDate(a.date)}</time> · {a.readingTime} de lecture
                   </p>
                 </article>

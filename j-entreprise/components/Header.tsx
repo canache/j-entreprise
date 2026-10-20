@@ -13,7 +13,6 @@ export function Logo({ className = "" }: { className?: string }) {
         alt="J Entreprise – Construction, Rénovation, Aménagement"
         width={1253}
         height={173}
-        preload
         className="h-auto w-52 md:w-64"
       />
     </Link>

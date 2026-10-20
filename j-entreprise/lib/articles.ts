@@ -17,7 +17,7 @@ export type Article = {
   content: Block[];
 };
 
-// TODO : caler les dates de publication sur la mise en ligne réelle (datePublished dans le JSON-LD).
+// Date de publication = date de mise en ligne (utilisée dans le sitemap et le JSON-LD BlogPosting).
 export const articles: Article[] = [
   {
     slug: "comment-choisir-artisan-la-rochelle",
@@ -26,7 +26,7 @@ export const articles: Article[] = [
     description:
       "Assurances, références, devis détaillés, disponibilité : les points à vérifier pour choisir un artisan fiable à La Rochelle et en Charente-Maritime.",
     category: "Bien préparer son projet",
-    date: "2026-10-19",
+    date: "2026-10-20",
     readingTime: "5 min",
     excerpt:
       "Assurance décennale, références, lisibilité du devis : les bons réflexes pour confier vos travaux à un professionnel de confiance.",
@@ -82,7 +82,7 @@ export const articles: Article[] = [
     description:
       "Air salin, vent, humidité : les précautions et les matériaux à privilégier pour rénover une maison sur le littoral de Charente-Maritime, de La Rochelle à Royan.",
     category: "Travaux extérieurs",
-    date: "2026-10-12",
+    date: "2026-10-20",
     readingTime: "6 min",
     excerpt:
       "Sel, vent et humidité usent plus vite façades, menuiseries et toitures. Les bons choix pour une rénovation durable sur le littoral.",
@@ -135,7 +135,7 @@ export const articles: Article[] = [
     description:
       "Mentions obligatoires, postes à vérifier, pièges courants : notre méthode pour comparer des devis de travaux et choisir la meilleure offre.",
     category: "Bien préparer son projet",
-    date: "2026-10-05",
+    date: "2026-10-20",
     readingTime: "5 min",
     excerpt:
       "Le moins cher n'est pas toujours le plus économique. Comment lire et comparer des devis pour choisir la meilleure offre.",

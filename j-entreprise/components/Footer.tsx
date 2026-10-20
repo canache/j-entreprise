@@ -60,7 +60,7 @@ export function Footer() {
             <li><Link href="/j-entreprise" className="hover:text-gold-light">Qui sommes-nous</Link></li>
             <li><Link href="/conseils" className="hover:text-gold-light">Conseils travaux</Link></li>
             {articles.slice(0, 2).map((a) => (
-              <li key={a.slug} className="text-ivory/45">
+              <li key={a.slug} className="text-ivory/60">
                 <Link href={`/conseils/${a.slug}`} className="hover:text-gold-light">
                   {a.title}
                 </Link>
@@ -86,7 +86,7 @@ export function Footer() {
             <p>
               {site.address.postalCode} {site.address.city}
             </p>
-            <p className="text-ivory/45">{site.hours}</p>
+            <p className="text-ivory/60">{site.hours}</p>
           </address>
           <Link
             href="/demande-de-devis"
@@ -98,7 +98,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/5">
-        <div className="mx-auto max-w-7xl px-4 py-6 text-xs leading-relaxed text-ivory/40 sm:px-6">
+        <div className="mx-auto max-w-7xl px-4 py-6 text-xs leading-relaxed text-ivory/55 sm:px-6">
           <p>
             Intervention dans toute la Charente-Maritime (La Rochelle, Rochefort, Saintes, Royan…), ainsi qu&apos;en
             Charente et en Vendée.
@@ -106,7 +106,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/5">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-xs text-ivory/40 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-xs text-ivory/55 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p>© 2026 J Entreprise — Courtier en travaux à La Rochelle</p>
           <ul className="flex gap-6">
             <li><Link href="/mentions-legales" className="hover:text-gold-light">Mentions légales</Link></li>

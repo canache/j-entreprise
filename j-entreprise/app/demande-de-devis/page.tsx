@@ -44,7 +44,7 @@ export default function Page() {
               <a href={`mailto:${site.email}`} className="mt-2 block text-sm text-ivory/60 hover:text-gold-light">
                 {site.email}
               </a>
-              <p className="mt-4 text-xs text-ivory/45">{site.hours}</p>
+              <p className="mt-4 text-xs text-ivory/60">{site.hours}</p>
             </div>
             <div className="border border-sand p-8">
               <h3 className="font-serif text-2xl">Et ensuite ?</h3>
@@ -54,7 +54,7 @@ export default function Page() {
                 <li><span className="mr-2 font-serif text-gold-dark">3.</span>Nous consultons les artisans adaptés et vous présentons leurs devis.</li>
               </ol>
             </div>
-            <p className="text-xs leading-relaxed text-mist">
+            <p className="text-xs leading-relaxed text-stone">
               Intervention en Charente-Maritime (La Rochelle, Rochefort, Saintes, Royan…), en Charente et en Vendée.
             </p>
           </aside>

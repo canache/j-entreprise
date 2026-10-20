@@ -86,7 +86,7 @@ export function Zones({ headingLevel = "h2" }: { headingLevel?: "h2" | "h3" }) {
           <div>
             <div className="border border-sand bg-white/50 p-8 md:p-10">
               <h3 className="font-serif text-3xl">
-                {main.department} <span className="text-mist">({main.code})</span>
+                {main.department} <span className="text-stone">({main.code})</span>
               </h3>
               <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3">
                 {main.cities.map((c, i) => (
@@ -106,11 +106,11 @@ export function Zones({ headingLevel = "h2" }: { headingLevel?: "h2" | "h3" }) {
                 {others.map((z) => (
                   <div key={z.department} className="grid gap-1 sm:grid-cols-[11rem_1fr] sm:gap-6">
                     <dt className="font-serif text-xl">
-                      {z.department} <span className="text-mist">({z.code})</span>
+                      {z.department} <span className="text-stone">({z.code})</span>
                     </dt>
                     <dd className="text-[0.95rem] leading-relaxed text-stone">
                       {z.cities.join(", ")}
-                      {z.note ? <span className="text-mist"> — {z.note.charAt(0).toLowerCase() + z.note.slice(1)}</span> : null}
+                      {z.note ? <span className="text-stone"> — {z.note.charAt(0).toLowerCase() + z.note.slice(1)}</span> : null}
                     </dd>
                   </div>
                 ))}

@@ -3,6 +3,8 @@ export type Prestation = {
   title: string;
   text: string;
   points: string[];
+  // Page dédiée au projet, quand elle existe.
+  link?: { href: string; label: string };
 };
 
 export type Domain = {
@@ -116,6 +118,7 @@ export const domains: Domain[] = [
           "Cuisine sur mesure et pose",
           "Accessibilité et salle d'eau PMR",
         ],
+        link: { href: "/renovation-salle-de-bain-la-rochelle", label: "Rénovation de salle de bain à La Rochelle" },
       },
     ],
     faq: [
@@ -155,6 +158,7 @@ export const domains: Domain[] = [
           "Ouverture de murs porteurs",
           "Fondations, dalles et murets",
         ],
+        link: { href: "/extension-maison-la-rochelle", label: "Extension de maison à La Rochelle" },
       },
       {
         id: "menuiserie-exterieure",

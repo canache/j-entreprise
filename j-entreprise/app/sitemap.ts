@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/lib/articles";
 import { domains } from "@/lib/domains";
+import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -13,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     page("", 1),
     page("/courtier-travaux-la-rochelle", 0.9),
+    ...projects.map((p) => page(`/${p.slug}`, 0.9)),
     page("/domaines-intervention", 0.9),
     ...domains.map((d) => page(`/domaines-intervention/${d.slug}`, 0.9)),
     page("/mon-accompagnement", 0.8),

@@ -111,6 +111,14 @@ export default async function Page({ params }: PageProps<"/domaines-intervention
                       </li>
                     ))}
                   </ul>
+                  {p.link ? (
+                    <Link
+                      href={p.link.href}
+                      className="mt-6 inline-block text-sm text-gold-dark underline decoration-gold/40 underline-offset-4 hover:text-ink"
+                    >
+                      {p.link.label} →
+                    </Link>
+                  ) : null}
                 </article>
               ))}
             </div>

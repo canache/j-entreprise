@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { articles } from "@/lib/articles";
 import { domains } from "@/lib/domains";
+import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
 
 export function Footer() {
@@ -48,9 +49,16 @@ export function Footer() {
             </li>
             <li>
               <Link href="/courtier-travaux-la-rochelle" className="hover:text-gold-light">
-                Courtier en travaux à La Rochelle
+                Rénovation à La Rochelle
               </Link>
             </li>
+            {projects.map((p) => (
+              <li key={p.slug}>
+                <Link href={`/${p.slug}`} className="hover:text-gold-light">
+                  {p.serviceType}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 

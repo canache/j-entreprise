@@ -79,7 +79,7 @@ export function Zones({ headingLevel = "h2" }: { headingLevel?: "h2" | "h3" }) {
               href="/courtier-travaux-la-rochelle"
               className="mt-6 inline-block text-sm text-gold-dark underline decoration-gold/40 underline-offset-4 hover:text-ink"
             >
-              Votre courtier en travaux à La Rochelle
+              Rénovation de maison à La Rochelle
             </Link>
           </div>
 

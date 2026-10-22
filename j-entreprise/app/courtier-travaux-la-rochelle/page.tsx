@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ButtonLink, CtaBanner, Eyebrow, JsonLd, PageHero } from "@/components/ui";
 import { domains } from "@/lib/domains";
+import { projects } from "@/lib/projects";
 import { laRochelleArea } from "@/lib/site";
 import { seo } from "@/lib/seo";
 
 export const metadata: Metadata = seo({
-  title: "Courtier en travaux La Rochelle et alentours",
+  title: "Rénovation de maison à La Rochelle et alentours",
   description:
-    "Courtier en travaux à La Rochelle, Lagord, Périgny, Aytré, Dompierre-sur-Mer et Châtelaillon-Plage : artisans sélectionnés et devis comparés.",
+    "Rénovation de maison à La Rochelle, Lagord, Périgny, Aytré et Châtelaillon-Plage : votre courtier en travaux sélectionne les artisans et compare leurs devis.",
   path: "/courtier-travaux-la-rochelle",
 });
 
@@ -28,6 +29,10 @@ const localPoints = [
 ];
 
 const localFaq = [
+  {
+    q: "Quelle différence entre une entreprise de rénovation et un courtier en travaux ?",
+    a: "Une entreprise de rénovation réalise les travaux avec ses équipes ou ses sous-traitants. Un courtier en travaux ne réalise pas les travaux : il sélectionne les artisans adaptés à chaque corps de métier, vous aide à comparer leurs devis, et vous signez directement avec eux.",
+  },
   {
     q: "Intervenez-vous dans toute l'agglomération de La Rochelle ?",
     a: "Oui : La Rochelle, Lagord, Périgny, Aytré, Dompierre-sur-Mer, Puilboreau, Nieul-sur-Mer, L'Houmeau, Angoulins, Châtelaillon-Plage, Sainte-Soulle, Saint-Xandre, ainsi que le reste de la Charente-Maritime.",
@@ -52,19 +57,21 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="La Rochelle · Aunis"
+        eyebrow="Courtier en travaux · La Rochelle"
         title={
           <>
-            Votre courtier en travaux <span className="text-gold-gradient italic">à La Rochelle</span>
+            Rénovation de maison <span className="text-gold-gradient italic">à La Rochelle</span>
           </>
         }
         intro={
           <p>
-            Rénovation d&apos;une maison à Lagord, salle de bain à Périgny, extension à Dompierre-sur-Mer ou terrasse à
-            Châtelaillon-Plage : J Entreprise trouve pour vous les bons artisans de l&apos;agglomération rochelaise.
+            Maison ancienne du centre, pavillon à Lagord, salle de bain à Périgny ou extension à Dompierre-sur-Mer :
+            plutôt que de chercher seul une entreprise de rénovation, confiez votre projet à J Entreprise, votre
+            courtier en travaux rochelais. Nous trouvons les bons artisans de l&apos;agglomération et comparons leurs
+            devis avec vous.
           </p>
         }
-        crumbs={[{ href: "/courtier-travaux-la-rochelle", label: "Courtier en travaux à La Rochelle" }]}
+        crumbs={[{ href: "/courtier-travaux-la-rochelle", label: "Rénovation à La Rochelle" }]}
       >
         <ButtonLink href="/demande-de-devis">Demander un devis à La Rochelle</ButtonLink>
       </PageHero>
@@ -74,10 +81,15 @@ export default function Page() {
           <div>
             <Eyebrow light>Un acteur local</Eyebrow>
             <h2 className="font-serif text-4xl leading-tight md:text-5xl">
-              Pourquoi un courtier en travaux rochelais ?
+              Entreprise de rénovation ou courtier en travaux ?
             </h2>
           </div>
           <div className="space-y-5 text-[1.05rem] leading-relaxed text-stone">
+            <p>
+              Une entreprise de rénovation générale réalise vos travaux avec ses équipes ou ses sous-traitants. Un
+              courtier en travaux sélectionne pour chaque corps de métier l&apos;artisan le plus adapté, vous aide à
+              comparer les devis, puis vous signez directement avec les entreprises retenues.
+            </p>
             <p>
               Sur l&apos;agglomération de La Rochelle, les bons artisans sont très sollicités et les délais
               s&apos;allongent vite. Connaître personnellement les entreprises du secteur, leurs spécialités et leurs
@@ -105,8 +117,23 @@ export default function Page() {
       <section className="bg-coal py-20 md:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Eyebrow>Nos domaines</Eyebrow>
-          <h2 className="font-serif text-4xl text-ivory md:text-5xl">Vos travaux à La Rochelle</h2>
-          <ul className="mt-12 grid gap-px bg-white/10 md:grid-cols-3">
+          <h2 className="font-serif text-4xl text-ivory md:text-5xl">Vos travaux de rénovation à La Rochelle</h2>
+          <ul className="mt-12 grid gap-px bg-white/10 sm:grid-cols-2">
+            {projects.map((p) => (
+              <li key={p.slug}>
+                <Link
+                  href={`/${p.slug}`}
+                  className="group flex h-full items-center justify-between gap-6 bg-graphite p-6 transition hover:bg-ink"
+                >
+                  <span className="font-serif text-2xl text-ivory group-hover:text-gold-light">
+                    {p.h1} {p.h1Accent}
+                  </span>
+                  <span aria-hidden="true" className="text-gold">→</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ul className="mt-px grid gap-px bg-white/10 md:grid-cols-3">
             {domains.map((d) => (
               <li key={d.slug} className="flex flex-col bg-ink p-8">
                 <span className="text-gold-gradient font-serif text-5xl">{d.number}</span>
